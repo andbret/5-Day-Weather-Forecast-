@@ -127,12 +127,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         // Initial array of movies
+        var todos = [];
         var movies = ["Atlanta", "Millville", "Philadelphia", "Columbus"];
-var movie = "atlanta"
+
 
         // displayMovieInfo function re-renders the HTML to display the appropriate content
         function displayMovieInfo() {
-            var movie = "atlanta"
+    
             var movie = $(this).attr("data-name");
             // var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
             var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + movie + "&appid=76cb6b1a3f9dd1794777dd0869a8066c";
@@ -354,21 +355,32 @@ var movie = "atlanta"
             // This line grabs the input from the textbox
             var movie = $("#movie-input").val().trim();
 
-            // Adding movie from the textbox to our array
-            movies.push(movie);
 
+            // Adding movie from the textbox to our array
+            
+            movies.push(movie);
+            
             // Calling renderButtons which handles the processing of our movie array
+            localStorage.setItem("todos", JSON.stringify(movies));
+console.log(localStorage.length);
             renderButtons();
+
         });
 
         // Adding a click event listener to all elements with a class of "movie-btn"
         $(document).ready(function(){
     $("#Atlanta").trigger('click'); 
 });
+
+
         $(document).on("click", ".movie-btn", displayMovieInfo);
 
         // Calling the renderButtons function to display the initial buttons
         renderButtons();
+
+
+
+
     </script>
 </body>
 
