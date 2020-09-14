@@ -329,6 +329,7 @@
         
         // This function handles events where a movie button is clicked
         $("#add-movie").on("click", function (event) {
+            var storedTodos = JSON.parse(localStorage.getItem("todos"));
             if (test === undefined || test === null){
                var test = ["Asheville"];
             }
@@ -338,6 +339,7 @@
         
             // }
             // else{}
+            console.log(storedTodos);
            console.log(test);
            console.log();
             event.preventDefault();
