@@ -15,7 +15,7 @@
     <title>Work Day Scheduler</title>
 </head>
 
-<body onload="renderButtons()">
+<body">
     <nav class="navbar navbar-dark bg-dark">
         <span class="navbar-brand mb-0 h1">Weather Dashboard</span>
     </nav>
@@ -23,7 +23,7 @@
     <div class="sidenav">
         <form class="form-inline" id="movie-form">
             <label for="movie-input">Search for a City</label>
-            <input class="form-control mr-sm-2" type="text" id="movie-input" aria-label="Search">
+            <input class="form-control mr-sm-2" type="text" id="movie-input" aria-label="Search" id="add-movie">
             <button class="btn success my-2 my-sm-0" type="submit" value="Add a Movie, Yo!"
                 id="add-movie">Search</button>
             <br><br>
@@ -31,8 +31,8 @@
 
 
 
-
         <div class="list-group mt-1" id="buttons-view">
+            
 
         </div>
     </div>
@@ -127,13 +127,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
         // Initial array of movies
-        var todos = [];
         var movies = ["Atlanta", "Millville", "Philadelphia", "Columbus"];
+      
+
+        // var test=[];
+        var test = [];
+        var concat = movies.concat(test);
 
 
         // displayMovieInfo function re-renders the HTML to display the appropriate content
         function displayMovieInfo() {
-    
+           
             var movie = $(this).attr("data-name");
             // var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
             var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + movie + "&appid=76cb6b1a3f9dd1794777dd0869a8066c";
@@ -167,7 +171,7 @@
                 var tempK = forecastData.list[0].main.temp;
                 // Fahrenheit: F = (K - 273.15) * 1.80 + 32
                 var tempF = ((tempK - 273.15) * 1.80 + 32).toFixed(2);
-                //   var test = ()
+              
 
                 console.log(condition1);
                 console.log("Wind Speed: " + windSpeed);
@@ -227,7 +231,7 @@
                 var tempK2 = forecastData.list[5].main.temp;
                 var tempF2 = ((tempK2 - 273.15) * 1.80 + 32).toFixed(2);
                 var condition2 = forecastData.list[5].weather[0].icon;
-                //   dayTwoDate.replace(" 09:00:00", "test");
+              
                 console.log(dayTwoDate);
                 $(".dayTwoDate").text(date2);
                 $(".condition2").attr("src", "http://openweathermap.org/img/wn/" + condition2 + "@2x.png");
@@ -236,8 +240,7 @@
                 $(".humidity2").text("Humidity: " + humidity2);
 
 
-                // dayTwoDate.replace(" 09:00:00", "test");
-
+        
 
 
                 // DAY 3
@@ -322,14 +325,47 @@
         }
 
         // Function for displaying movie data
-        function renderButtons() {
+        
+        // This function handles events where a movie button is clicked
+        $("#add-movie").on("click", function (event) {
+            test = storedTodos;
+            event.preventDefault();
+            console.log("HOLY FUCC");
+            // This line grabs the input from the textbox
+            var testy = $("#movie-input").val().trim();
+            $('#movie-input').val('')
+            // Adding movie from the textbox to our array
+            console.log(testy);
+            test.push(testy);
+            console.log(test);
+            console.log(testy);
+            console.log("HOLY FUCC2");
+            localStorage.setItem("todos", JSON.stringify(test));
+     
+            // Calling renderButtons which handles the processing of our movie array
+            renderButtons();
+        });
 
+        function renderButtons() {
+            // document.getElementById("clear").reset();
+            var storedTodos = JSON.parse(localStorage.getItem("todos"));
+            
+           
+            
+
+            console.log(storedTodos);
+            console.log(test);
+            var test = storedTodos;
+            console.log(test);
             // Deleting the movies prior to adding new movies
             // (this is necessary otherwise you will have repeat buttons)
             $("#buttons-view").empty();
-
+           
+            var concat = movies.concat(test);
             // Looping through the array of movies
-            for (var i = 0; i < movies.length; i++) {
+            
+            console.log(movies.length);
+            for (var i = 0; i < concat.length; i++) {
 
                 // Then dynamicaly generating buttons for each movie in the array
                 // This code $("<button>") is all jQuery needs to create the beginning and end tag. (<button></button>)
@@ -339,49 +375,44 @@
                 a.addClass("list-group-item");
                 a.addClass("list-group-item-action");
                 // Adding a data-attribute
-                a.attr("data-name", movies[i]);
-                a.attr("id", movies[i]);
+                a.attr("data-name", concat[i]);
+                a.attr("id", concat[i]);
                 // Providing the initial button text
-                a.text(movies[i]);
+                a.text(concat[i]);
                 // Adding the button to the buttons-view div
                 $("#buttons-view").append(a);
+                console.log(concat);
             }
             // <a href="#" class="list-group-item list-group-item-action">Vestibulum at eros</a>
         }
 
-        // This function handles events where a movie button is clicked
-        $("#add-movie").on("click", function (event) {
-            event.preventDefault();
-            // This line grabs the input from the textbox
-            var movie = $("#movie-input").val().trim();
-
-
-            // Adding movie from the textbox to our array
-            
-            movies.push(movie);
-            
-            // Calling renderButtons which handles the processing of our movie array
-            localStorage.setItem("todos", JSON.stringify(movies));
-console.log(localStorage.length);
-            renderButtons();
-
-        });
 
         // Adding a click event listener to all elements with a class of "movie-btn"
         $(document).ready(function(){
-    $("#Atlanta").trigger('click'); 
+console.log("HELLO WORLD");
+            var test = [];
+    $("#Atlanta").trigger('click');
+    console.log("HELLO WORLD");
+    // var storedTodos = JSON.parse(localStorage.getItem("todos")); 
+    console.log(storedTodos);
+    // var test = storedTodos;
+    console.log(test);
+    console.log(concat);
+
 });
-
-
         $(document).on("click", ".movie-btn", displayMovieInfo);
-
+        var storedTodos = JSON.parse(localStorage.getItem("todos")); 
+        if (test != storedTodos){
+        var test = [];
+        }
+        else{
+            test = storedTodos
+        }
+        
         // Calling the renderButtons function to display the initial buttons
         renderButtons();
-
-
-
-
+    
     </script>
 </body>
 
-</html>
+</html> 
