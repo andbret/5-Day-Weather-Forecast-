@@ -186,7 +186,7 @@
                 $(".humidity").text("Humidity: " + humidity);
                 $(".temp").html("Temperature (F): " + tempF + "&deg;");
 
-                var queryURL2 = "http://api.openweathermap.org/data/2.5/uvi?appid=76cb6b1a3f9dd1794777dd0869a8066c&lat=" + lat + "&lon=" + lon + "";
+                var queryURL2 = "https://api.openweathermap.org/data/2.5/uvi?appid=76cb6b1a3f9dd1794777dd0869a8066c&lat=" + lat + "&lon=" + lon + "";
                 $.ajax({
                     url: queryURL2,
                     method: "GET"
@@ -234,7 +234,7 @@
               
                 console.log(dayTwoDate);
                 $(".dayTwoDate").text(date2);
-                $(".condition2").attr("src", "http://openweathermap.org/img/wn/" + condition2 + "@2x.png");
+                $(".condition2").attr("src", "https://openweathermap.org/img/wn/" + condition2 + "@2x.png");
                 $(".temp2").html("Temperature (F): " + tempF2 + "&deg;");
                 //   $(".wind2").text("Wind Speed: " + windSpeed2);
                 $(".humidity2").text("Humidity: " + humidity2);
@@ -258,7 +258,7 @@
                 var tempF3 = ((tempK3 - 273.15) * 1.80 + 32).toFixed(2);
                 var condition3 = forecastData.list[13].weather[0].icon;
                 $(".dayThreeDate").text(date3);
-                $(".condition3").attr("src", "http://openweathermap.org/img/wn/" + condition3 + "@2x.png");
+                $(".condition3").attr("src", "https://openweathermap.org/img/wn/" + condition3 + "@2x.png");
                 $(".temp3").html("Temperature (F): " + tempF3 + "&deg;");
                 //   $(".wind3").text("Wind Speed: " + windSpeed3);
                 $(".humidity3").text("Humidity: " + humidity3);
@@ -277,7 +277,7 @@
                 var tempF4 = ((tempK3 - 273.15) * 1.80 + 32).toFixed(2);
                 var condition4 = forecastData.list[21].weather[0].icon;
                 $(".dayFourDate").text(date4);
-                $(".condition4").attr("src", "http://openweathermap.org/img/wn/" + condition4 + "@2x.png");
+                $(".condition4").attr("src", "https://openweathermap.org/img/wn/" + condition4 + "@2x.png");
                 $(".temp4").html("Temperature (F): " + tempF4 + "&deg;");
                 //   $(".wind4").text("Wind Speed: " + windSpeed4);
                 $(".humidity4").text("Humidity: " + humidity4);
@@ -295,7 +295,7 @@
                 var tempF5 = ((tempK5 - 273.15) * 1.80 + 32).toFixed(2);
                 var condition5 = forecastData.list[29].weather[0].icon;
                 $(".dayFiveDate").text(date5);
-                $(".condition5").attr("src", "http://openweathermap.org/img/wn/" + condition5 + "@2x.png");
+                $(".condition5").attr("src", "https://openweathermap.org/img/wn/" + condition5 + "@2x.png");
                 $(".temp5").html("Temperature (F): " + tempF5 + "&deg;");
                 //   $(".wind5").text("Wind Speed: " + windSpeed5);
                 $(".humidity5").text("Humidity: " + humidity5);
@@ -314,7 +314,7 @@
                 var condition6 = forecastData.list[37].weather[0].icon;
                 console.log(forecastData.list[0].weather[0].main);
                 $(".daySixDate").text(date6);
-                $(".condition6").attr("src", "http://openweathermap.org/img/wn/" + condition6 + "@2x.png");
+                $(".condition6").attr("src", "https://openweathermap.org/img/wn/" + condition6 + "@2x.png");
                 $(".temp6").html("Temperature (F): " + tempF6 + "&deg;");
                 //   $(".wind6").text("Wind Speed: " + windSpeed6);
                 $(".humidity6").text("Humidity: " + humidity6);
