@@ -330,12 +330,13 @@
         // This function handles events where a movie button is clicked
         $("#add-movie").on("click", function (event) {
             var storedTodos = JSON.parse(localStorage.getItem("todos"));
+            var test = storedTodos;
             if (test === undefined || test === null){
                var test = ["Asheville"];
             }
-            else{
-                var test = storedTodos;
-            }
+            
+                
+            
         
             // }
             // else{}
@@ -363,17 +364,16 @@
             // document.getElementById("clear").reset();
             var storedTodos = JSON.parse(localStorage.getItem("todos"));
             
-            if (test != null){
-    var test = storedTodos;
-    }
-    else{
-       var test = ["Asheville"];
-    }
+            
+            var test = storedTodos;
+            if (test === undefined || test === null){
+               var test = ["Asheville"];
+            }
             
 
             console.log(storedTodos);
             console.log(test);
-            test = storedTodos;
+            // test = storedTodos;
             console.log(test);
             // Deleting the movies prior to adding new movies
             // (this is necessary otherwise you will have repeat buttons)
@@ -408,14 +408,12 @@
         // Adding a click event listener to all elements with a class of "movie-btn"
         $(document).ready(function(){
 console.log("HELLO WORLD");
-var storedTodos = JSON.parse(localStorage.getItem("todos")); 
     
-    if (test = null){
-    var test = storedTodos;
-    }
-    else{
-      var test = ["Asheville"];
-    }
+var storedTodos = JSON.parse(localStorage.getItem("todos"));
+            var test = storedTodos;
+            if (test === undefined || test === null){
+               var test = ["Asheville"];
+            }
     $("#Atlanta").trigger('click');
     console.log("HELLO WORLD");
     // var storedTodos = JSON.parse(localStorage.getItem("todos")); 
@@ -426,14 +424,12 @@ var storedTodos = JSON.parse(localStorage.getItem("todos"));
 
 });
         $(document).on("click", ".movie-btn", displayMovieInfo);
-        var storedTodos = JSON.parse(localStorage.getItem("todos")); 
     
-        if (test != null){
-        var test = storedTodos;
-        }
-        else{
-           var test = ["Asheville"];
-        }
+        var storedTodos = JSON.parse(localStorage.getItem("todos"));
+            var test = storedTodos;
+            if (test === undefined || test === null){
+               var test = ["Asheville"];
+            }
         console.log("AAAAAAA");
         console.log(test);
         // Calling the renderButtons function to display the initial buttons
