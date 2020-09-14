@@ -131,7 +131,7 @@
       
         // var SameSite=None;
         // var test=[];
-        var test = [];
+
         var concat = movies.concat(test);
 
 
@@ -329,10 +329,10 @@
         
         // This function handles events where a movie button is clicked
         $("#add-movie").on("click", function (event) {
-            if (test != storedTodos){
-                test = movie;
-            }
-            else{}
+            // if (test != storedTodos){
+            //     test = [];
+            // }
+            // else{}
            console.log(test);
            console.log();
             event.preventDefault();
@@ -356,12 +356,12 @@
             // document.getElementById("clear").reset();
             var storedTodos = JSON.parse(localStorage.getItem("todos"));
             
-            if (test != null){
-    var test = storedTodos;
-    }
-    else{
-        test = [];
-    }
+    //         if (test != null){
+    // var test = storedTodos;
+    // }
+    // else{
+    //     test = [];
+    // }
             
 
             console.log(storedTodos);
@@ -403,12 +403,12 @@
 console.log("HELLO WORLD");
 // var storedTodos = JSON.parse(localStorage.getItem("todos")); 
     
-    if (test != null){
-    var test = storedTodos;
-    }
-    else{
-        test = [];
-    }
+    // if (test != null){
+    // var test = storedTodos;
+    // }
+    // else{
+    //     test = [];
+    // }
     $("#Atlanta").trigger('click');
     console.log("HELLO WORLD");
     // var storedTodos = JSON.parse(localStorage.getItem("todos")); 
