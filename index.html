@@ -331,8 +331,8 @@
         $("#add-movie").on("click", function (event) {
             if (test != storedTodos){
                 test = ["Asheville"];
-            }
-            else{};
+            };
+        
             // }
             // else{}
            console.log(test);
@@ -358,12 +358,12 @@
             // document.getElementById("clear").reset();
             var storedTodos = JSON.parse(localStorage.getItem("todos"));
             
-    //         if (test != null){
-    // var test = storedTodos;
-    // }
-    // else{
-    //     test = [];
-    // }
+            if (test != null){
+    var test = storedTodos;
+    }
+    else{
+        test = ["Asheville"];
+    }
             
 
             console.log(storedTodos);
@@ -403,14 +403,14 @@
         // Adding a click event listener to all elements with a class of "movie-btn"
         $(document).ready(function(){
 console.log("HELLO WORLD");
-// var storedTodos = JSON.parse(localStorage.getItem("todos")); 
+var storedTodos = JSON.parse(localStorage.getItem("todos")); 
     
-    // if (test != null){
-    // var test = storedTodos;
-    // }
-    // else{
-    //     test = [];
-    // }
+    if (test != null){
+    var test = storedTodos;
+    }
+    else{
+        test = ["Asheville"];
+    }
     $("#Atlanta").trigger('click');
     console.log("HELLO WORLD");
     // var storedTodos = JSON.parse(localStorage.getItem("todos")); 
@@ -427,7 +427,7 @@ console.log("HELLO WORLD");
         var test = storedTodos;
         }
         else{
-            test = [];
+            test = ["Asheville"];
         }
         console.log("AAAAAAA");
         console.log(test);
