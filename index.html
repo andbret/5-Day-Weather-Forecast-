@@ -329,9 +329,12 @@
         
         // This function handles events where a movie button is clicked
         $("#add-movie").on("click", function (event) {
-            if (test != storedTodos){
+            if (test === null){
                var test = ["Asheville"];
-            };
+            }
+            else{
+                var test = storedTodos;
+            }
         
             // }
             // else{}
