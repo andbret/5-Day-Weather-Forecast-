@@ -130,7 +130,7 @@
         var movies = ["Atlanta", "Millville", "Philadelphia", "Columbus"];
       
         // var SameSite=None;
-        var test = ["Asheville"]
+        var test = ["Asheville"];
 
         var concat = movies.concat(test);
 
@@ -329,8 +329,10 @@
         
         // This function handles events where a movie button is clicked
         $("#add-movie").on("click", function (event) {
-            // if (test != storedTodos){
-            //     test = [];
+            if (test != storedTodos){
+                test = ["Asheville"];
+            }
+            else{};
             // }
             // else{}
            console.log(test);
