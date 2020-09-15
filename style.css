@@ -1,6 +1,4 @@
-
-    
-
+/* sets the size for the side nav */
 .sidenav {
   width: 320px;
   position: fixed;
@@ -12,22 +10,18 @@
   padding: 8px;
   height:100%;
 }
-/* .navbar{
-    position: fixed !important;
-} */
 
+/* changes the color when the mouse hovers over a button */
 .sidenav a:hover {
   color: #064579;
 }
-
+/* sets the spacing for the weatehr content relative to the side nav */
 .main {
   margin-left: 310px; /* Same width as the sidebar + left position in px */
   /* font-size: 28px; Increased text to enable scrolling */
   padding: 0px 10px;
 }
-
-
-
+/* adds margins, border and color to the jumbotron */
 .jumbotron{
     border: 1px solid rgb(219, 219, 219);
     background: #ffffff;
@@ -36,39 +30,40 @@
     margin-left: 15px;
     margin-right: 15px;
 }
+/* sets the position for the top most icon so that it is level with the text */
 .condition1{
     position:relative;
      top:-25px;
 }
-.yeet{
-    margin-left: -5px;
-}
+/* spacing for the UV color */
 .UV{
     padding-right: 7px;
     border-radius: 3px;
     padding-left: 7px;
 }
+/* sets the card background */
 .card{
-    background: #ADD8E6;
-    
+    background: #ADD8E6;    
 }
-
+/* places other content behind the nav */
 nav{
-
     z-index: 100;
-
-
 }
+/* centers text in the nav */
 .navbar-brand{
     transform: translateX(-50%);
     left: 50%;
     position: relative;
 
 }
+/* sets button backgrounds */
 .success{
-    
     background: #ADD8E6; 
 }
+.revert{
+    background: #ADD8E6; 
+}
+
 .list-group{
     margin-right: 6px;
 }

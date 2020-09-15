@@ -37,6 +37,13 @@
 
 
         </div>
+
+    <div class="fixed-bottom">
+    
+        <button class="btn revert m-2" style="width: 300px;" type="reset"
+        id="clear-cities">Clear Cities</button>  
+</div>
+
     </div>
 
     <main class="main">
@@ -328,8 +335,8 @@
 
         // This function handles events where a city button is clicked
         $("#add-cities").on("click", function (event) {
-            var storedTodos = JSON.parse(localStorage.getItem("todos"));
-            var test = storedTodos;
+            var storedlocations = JSON.parse(localStorage.getItem("locations"));
+            var test = storedlocations;
             // I had issues witht "test" returning null so all instances of this exist as a fail-safe"
             if (test === undefined || test === null) {
                 var test = ["Asheville"];
@@ -341,7 +348,7 @@
             $('#cities-input').val('')
             // Adding city from the textbox to the array
             test.push(testy);
-            localStorage.setItem("todos", JSON.stringify(test));
+            localStorage.setItem("locations", JSON.stringify(test));
 
             // Calling renderButtons which updates thte buttons to reflect the full array
             renderButtons();
@@ -349,10 +356,10 @@
 
         function renderButtons() {
             // document.getElementById("clear").reset();
-            var storedTodos = JSON.parse(localStorage.getItem("todos"));
+            var storedlocations = JSON.parse(localStorage.getItem("locations"));
 
 
-            var test = storedTodos;
+            var test = storedlocations;
             if (test === undefined || test === null) {
                 var test = ["Asheville"];
             }
@@ -387,23 +394,30 @@
         // Adding a click event listener to all elements with a class of "cities-btn"
         $(document).ready(function () {
 
-            var storedTodos = JSON.parse(localStorage.getItem("todos"));
-            var test = storedTodos;
+            var storedlocations = JSON.parse(localStorage.getItem("locations"));
+            var test = storedlocations;
             if (test === undefined || test === null) {
                 var test = ["Asheville"];
             }
             $("#Atlanta").trigger('click');
-            // var storedTodos = JSON.parse(localStorage.getItem("todos")); 
-            // var test = storedTodos;
 
         });
         $(document).on("click", ".cities-btn", displaycitiesInfo);
 
-        var storedTodos = JSON.parse(localStorage.getItem("todos"));
-        var test = storedTodos;
+        var storedlocations = JSON.parse(localStorage.getItem("locations"));
+        var test = storedlocations;
         if (test === undefined || test === null) {
             var test = ["Asheville"];
         }
+        // resets the cities to the default buttons
+        $("#clear-cities").on("click", function (event) {
+            var test = ["Asheville"];
+            localStorage.setItem("locations", JSON.stringify(test));
+            renderButtons();
+            
+        });
+
+        
         // Calling the renderButtons function to display the initial buttons
         renderButtons();
 
